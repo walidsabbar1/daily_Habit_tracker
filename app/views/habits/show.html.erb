@@ -10,16 +10,16 @@
     </div>
 
     <div class="flex justify-center items-center space-x-8">
-      <button class="btn bg-rose-100 text-rose-600 border border-rose-200 text-2xl" id="decrement-habit">-</button>
-      <div class="text-6xl font-black text-gray-900 tabular-nums"><%= @habit.count %></div>
-      <button class="btn bg-emerald-100 text-emerald-600 border border-emerald-200 text-2xl" id="increment-habit">+</button>
+      <%= button_to '-', minus_habit_path(@habit), class: 'btn bg-rose-100 text-rose-600 border border-rose-200 text-2xl' %>
+      <div class="text-6xl font-black text-gray-900 tabular-nums"><%= @habit.count.to_i %></div>
+      <%= button_to '+', plus_habit_path(@habit), class: 'btn bg-emerald-100 text-emerald-600 border border-emerald-200 text-2xl' %>
     </div>
 
     <div class="mt-10 flex flex-wrap justify-center gap-2">
-      <% @habit.count.times do %>
+      <% @habit.count.to_i.times do %>
         <div class="w-8 h-8 rounded-lg bg-emerald-500 shadow-sm shadow-emerald-200 transition-all hover:scale-110"></div>
       <% end %>
-      <% if @habit.count == 0 %>
+      <% if @habit.count.to_i == 0 %>
         <div class="text-gray-400 italic text-sm py-4">No progress yet today. Click + to start!</div>
       <% end %>
     </div>
