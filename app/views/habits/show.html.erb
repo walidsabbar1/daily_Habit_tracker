@@ -1,0 +1,27 @@
+<div class="space-y-8">
+  <div class="text-center">
+    <h1 class="font-extrabold text-5xl text-gray-900 tracking-tight">Habit</h1>
+    <p class="text-gray-500 mt-2 font-medium">Keep track of your daily progress</p>
+  </div>
+
+  <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100">
+    <div class="text-3xl font-bold text-gray-800 text-center mb-6" id="habit-name">
+      <%= @habit.name %>
+    </div>
+
+    <div class="flex justify-center items-center space-x-8">
+      <button class="btn bg-rose-100 text-rose-600 border border-rose-200 text-2xl" id="decrement-habit">-</button>
+      <div class="text-6xl font-black text-gray-900 tabular-nums"><%= @habit.count %></div>
+      <button class="btn bg-emerald-100 text-emerald-600 border border-emerald-200 text-2xl" id="increment-habit">+</button>
+    </div>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-2">
+      <% @habit.count.times do %>
+        <div class="w-8 h-8 rounded-lg bg-emerald-500 shadow-sm shadow-emerald-200 transition-all hover:scale-110"></div>
+      <% end %>
+      <% if @habit.count == 0 %>
+        <div class="text-gray-400 italic text-sm py-4">No progress yet today. Click + to start!</div>
+      <% end %>
+    </div>
+  </div>
+</div>
